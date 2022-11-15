@@ -152,3 +152,135 @@ def solution(numbers):
     ```
 
     
+    
+    ```
+    def solution(polynomial):
+        elem_list = polynomial.split(' + ')
+        x_list = []
+        c_list = []
+    
+        for elem in elem_list:
+            # x의 계수가 1일때
+            if elem.find('x') == 0:
+                x_list.append(1)
+            # x의 계수가 2이상일때
+            elif elem.find('x') > 0:
+                x_list.append(int(elem.replace('x','')))
+            # 상수항일때
+            else:
+                c_list.append(int(elem))
+        
+        x_sum = sum(x_list) # x의 계수
+        c_sum = sum(c_list) # 상수항 
+    
+        # x의 계수가 없을때_상수항일때
+        if x_sum == 0:
+            return str(c_sum)
+        
+        # 1차 다항식일때_x의 계수 구분
+        elif x_sum == 1 : 
+            return 'x'
+        else :
+            str(x_sum)+'x'
+            
+        return answer if c_sum == 0 else str(answer)+' + '+str(c_sum)
+    ```
+    
+    ```
+    NameError: name 'answer' is not defined
+    ```
+    
+    
+    
+    ```
+    def solution(polynomial):
+        elem_list = polynomial.split(' + ')
+        x_list = []
+        c_list = []
+    
+        for elem in elem_list:
+            # x의 계수가 1일때
+            if elem.find('x') == 0:
+                x_list.append(1)
+            # x의 계수가 2이상일때
+            elif elem.find('x') > 0:
+                x_list.append(int(elem.replace('x','')))
+            # 상수항일때
+            else:
+                c_list.append(int(elem))
+        
+        x_sum = sum(x_list) # x의 계수
+        c_sum = sum(c_list) # 상수항 
+    
+        answer = 'x'
+        
+        # x의 계수가 없을때_상수항일때
+        if x_sum == 0:
+            return str(c_sum)
+        
+        # 1차 다항식일때_x의 계수 구분
+        elif x_sum == 1 : 
+            return answer
+        elif x_sum > 1 :
+            answer = str(x_sum)+'x'
+            if c_sum == 0 :
+                return answer
+            else :
+                return answer +' + '+str(c_sum)
+    ```
+    
+    ```
+    8번 12번 casd 오류
+    - 8번 case : x의 상수가 1일 경우에는 표시하지 않음
+    입력 : "x + 7 + 15"
+    결과 : "x + 22"
+    실행 결과 : 실행한 결괏값 "x"이 기댓값 "x + 22"과 다릅니다.
+    >> 상수항이 있을때 생각하지 못함.
+    ```
+    
+    
+
+## 답안
+
+```
+def solution(polynomial):
+    elem_list = polynomial.split(' + ')
+    x_list = []
+    c_list = []
+
+    for elem in elem_list:
+        # x의 계수가 1일때
+        if elem.find('x') == 0:
+            x_list.append(1)
+        # x의 계수가 2이상일때
+        elif elem.find('x') > 0:
+            x_list.append(int(elem.replace('x','')))
+        # 상수항일때
+        else:
+            c_list.append(int(elem))
+    
+    x_sum = sum(x_list) # x의 계수
+    c_sum = sum(c_list) # 상수항 
+
+    answer = 'x'
+    
+    # x의 계수가 없을때_상수항일때
+    if x_sum == 0:
+        return str(c_sum)
+    
+    # 1차 다항식일때_x의 계수 구분
+    elif x_sum == 1 : 
+        if c_sum == 0 :
+            return answer
+        else :
+            return answer +' + '+str(c_sum)
+    elif x_sum > 1 :
+        answer = str(x_sum)+'x'
+        if c_sum == 0 :
+            return answer
+        else :
+            return answer +' + '+str(c_sum)
+```
+
+
+
