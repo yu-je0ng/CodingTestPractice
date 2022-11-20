@@ -101,7 +101,7 @@ answer
 
 ## 답안
 
-```
+```py
 def solution(babbling):
     answer = 0
     bab_list = ["aya", "ye", "woo", "ma"]
@@ -115,6 +115,23 @@ def solution(babbling):
 ```
 
 
+
+### replace
+
+```py
+txt = "one one was a race horse, two two was one too."
+
+x = txt.replace("one", "three")
+
+> x = txt.replace("one", "three")
+three three was a race horse, two two was three too.
+
+> x = txt.replace("one", "three", 1)
+three one was a race horse, two two was one too.
+
+x = txt.replace("one", "three", 2)
+three three was a race horse, two two was one too.
+```
 
 
 
